@@ -1,0 +1,35 @@
+<header>
+  <nav class="nabvar navbar-expand-lg navbar-dark bg-dark">
+    <a class = "navbar-brand" href="/">
+      <span>Bookers</span>
+    </a>
+    <button class = "navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class = "navbar-toggler-icon"></span>
+    </button>
+    <div class = "collapse nabvar-collapse" id="navbarNavDropdown">
+      <ul class = "nabvar-nav ml-auto">
+        <% if user_signed_in? %>
+        <li>
+          <a class = "fas fa-home nav-link text-light" href="/user">Home</a>
+        </li>
+        <li>
+          <a class = "fas fa-users nav-linktext-light" href="/users">Users</a>
+        </li>
+        <li>
+          <a class = "fas fa-book-open nav-linktext-light" href="/books">Books</a>
+        </li>
+        <li>
+          <a class = "fas fa-sign-out-alt nav-linktext-light" rel ="nofollow" data-method="delete" href="/users/sign_out">Log out</a>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to "Sign up", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "Log in", new_user_session_path %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

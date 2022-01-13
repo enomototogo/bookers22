@@ -1,0 +1,24 @@
+// Place all the styles related to the Books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.edit-button{
+  color: #fff;
+  background-color: green;
+}
+.edit-button:hover{
+  color: #fff;
+  background: green;
+}
+.destroy-button{
+  color: #fff;
+  background-color: red;
+}
+.destroy-button:hover{
+  color: #fff;
+  background: red;
+}
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
