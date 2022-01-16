@@ -1,16 +1,15 @@
 class BooksController < ApplicationController
-
   def new
     @book = Book.new
   end
 
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user.id #投稿時ログインしているユーザーのidを保存する記述
+    @book.user_id = current_user.id
     if @book.save
-       redirect_to book_path(@book), notice: 'Book was successfully created.' #詳細表示画面へ
+       redirect_to book_path(@book), notice: 'Book was successfully created.'
     else
-      @books = Book.all #renderでindexページを呼び出すなら、indexで定義されている変数も一緒に持ってくること
+      @books = Book.all
       @user = User.find(current_user.id)
       render "index"
     end
@@ -27,6 +26,7 @@ class BooksController < ApplicationController
     @newbook = Book.new
     @user = @book.user
     @user_template = User.find(current_user.id)
+    @book_comment = BookComment.new
   end
 
   def destroy
@@ -60,4 +60,3 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :body)
   end
 end
-
